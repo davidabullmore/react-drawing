@@ -5,7 +5,7 @@ class Draw extends React.Component{
 
   newState(e){
     const color = e.target.value;
-    this.props.swapState();
+    this.props.setColor();
   }
 
   render(){

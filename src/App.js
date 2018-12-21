@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Draw from './components/Draw';
+import Header from './components/Header';
 
 class App extends Component {
 
@@ -9,8 +10,8 @@ class App extends Component {
     color: "#000",
   }
 
-  swapState(){
-    this.setState({color: "#ffc600"});
+  setColor(newColor){
+    this.setState({color: newColor});
   }
 
 
@@ -18,11 +19,14 @@ class App extends Component {
     return (
       <div className="App">
 
-
+        <Header
+          color={this.state.color}
+          setColor={this.setColor.bind(this)}
+        />
 
         <Draw
           color={this.state.color}
-          swapState={this.swapState.bind(this)}
+          setColor={this.setColor.bind(this)}
         />
       </div>
     );
